@@ -1,4 +1,3 @@
-import { words } from "./constants.js";
 import { Participant } from "./js/Participant.js";
 
 
