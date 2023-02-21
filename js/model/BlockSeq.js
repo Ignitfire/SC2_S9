@@ -1,4 +1,4 @@
-import { nbTrials } from "../constants.js";
+import { nbTrials } from "../../constants.js";
 import { Sequence } from "./Sequence.js";
 
 export const BlockSeq = class{
@@ -20,6 +20,16 @@ export const BlockSeq = class{
             this.sequences.push(new Sequence(congruentProportion))
         }
     }
+
+    /**
+   * parcours des essais du participants en appliquant la fonction
+   * @param {Function} callbackFunction
+   */
+async trialCourse(callbackFunction) {
+    for (let sequence of this.sequences) {
+      await sequence.trialCourse(callbackFunction);
+    }
+  }
 
     
 }

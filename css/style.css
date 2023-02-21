@@ -1,5 +1,9 @@
+@import url('instructionWindow.css');
+
+
+
 body{
-    display: flexbox;
+    display: flex;
     flex-direction: column;
     background-color: black;
     align-items: center;

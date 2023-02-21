@@ -1,4 +1,4 @@
-import { words } from "../constants.js";
+import { words } from "../../constants.js";
 
 export const Trial = class{
 
@@ -30,7 +30,7 @@ export const Trial = class{
     /**
      * @property { Integer }: temps en millisecondes quand le bouton de couleur est cliqué
      */
-    endTime;
+    #endTime;
 
     /**
      * @property { Integer }: difference de temps entre debut et fin de l'essai
@@ -64,12 +64,12 @@ export const Trial = class{
      * le setter se charge d'instancier this.endTime et this.latency en fonction du parametre
      * @param { Integer } endTime: le temps au moment du clic sur le bouton choisi 
      */
-    set endTime (endTime) {
+    set endTime(value) {
         if(!this.startTime){
             throw new Error("Le temps du debut de l'essai n'a pas été enregistré");
         }
-        this.endTime = endTime;
-        this.latency = endTime - this.startTime;
+        this.#endTime = value
+        this.latency = value - this.startTime;
     }
 
 
