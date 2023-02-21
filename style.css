@@ -1,0 +1,48 @@
+body{
+    display: flexbox;
+    flex-direction: column;
+    background-color: black;
+    align-items: center;
+    justify-content:center;
+}
+html{
+    /*constants, basesize represents 1cm of the original experience,*/
+    --baseSize:30px;
+    --orginalDistance:calc(31.5*var(--baseSize));
+    --cmToPixelRatio:2.54/96
+}
+.target{
+    background-color: black;
+    font-size: 40px;
+    color:white;
+    border-width: 2px;
+    border-style:solid;
+    border-color: white;
+    width: calc(var(--baseSize)*5);
+    height: calc(var(--baseSize)*4);
+}
+#stimulusBox{
+    height: 100px;
+}
+#stimulus{
+    margin-top: 0px;
+    background-color: black;
+    color:white;    
+    font-size: calc(var(--baseSize)*2);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.start{
+    width: calc(var(--baseSize)*5);
+    height:calc(var(--baseSize)*2);
+}
+
+#ActionBox{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: center;
+    position: absolute;
+    bottom: 10px;
+}
