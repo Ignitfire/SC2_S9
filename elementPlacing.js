@@ -1,12 +1,8 @@
-function getBasePosition(){
+function basePositionning(){
+    //placer la zone d'action au centre
     let actionBox=document.querySelector("#ActionBox");
-    console.log(window.innerWidth)
-    console.log(actionBox.clientWidth)
     actionBox.style.left=((window.innerWidth-actionBox.clientWidth)/2)+"px"
 
-}
-
-function getCoordinates(){
     // récupérer les éléments et tailles.
     let targetA=document.querySelector("#red");
     let targetB=document.querySelector("#blue");
@@ -45,8 +41,6 @@ function getCoordinates(){
     let distance= Math.sqrt(Math.pow(Math.abs(targetA_X-start_X),2)+Math.pow(Math.abs(targetA_Y-start_Y),2))
     console.log(distance)
     // placer les blocs 2 et 3 aux intersections gauche et droite de cette même distance
-    // distance = sqrt(pow(start_X-targetB_X)+pow(start_Y-targetB_Y))
-    // sqrt(pow(distance)-pow(start_Y-targetB_Y))-start_X=-targetB_X
     let targetB_Y= (blockHeight/2)+8
     let targetB_X=-Math.sqrt(Math.pow(distance,2)-Math.pow(start_Y-targetB_Y,2))+start_X
     console.log(targetB_X)
@@ -57,5 +51,4 @@ function getCoordinates(){
     targetC.style.position="absolute"
     targetC.style.right=targetB_X+"px"
 }
-getBasePosition()
-getCoordinates()
+basePositionning()
