@@ -4,12 +4,19 @@ body{
     background-color: black;
     align-items: center;
     justify-content:center;
+    margin: 0 0 0 0;
 }
 html{
     /*constants, basesize represents 1cm of the original experience,*/
     --baseSize:30px;
     --orginalDistance:calc(31.5*var(--baseSize));
     --cmToPixelRatio:2.54/96
+}
+#frame{
+    width: 1100px;
+    height: 550px;
+    background-color:black;
+    position: absolute;
 }
 .target{
     background-color: black;
