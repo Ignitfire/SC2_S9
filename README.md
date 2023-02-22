@@ -2,10 +2,7 @@
 
 
 
-function mousemove(e){
-position=[e.pageX,e.pageY]
-trial.mousePath.push(position)
-}
+
 
 mouseEvent
 trial= actual trial
@@ -14,8 +11,13 @@ start.addEventListener('click,startTrial(trial))
 function startTrial(trial){
 textColor=selectTextColor()
 trial.TextColor=textColor
-buttons.addEventListener('click',answerSelected)
+word=""
+if(trial.isCongruent) word=a
+else word=b
 trial.starttime=time
+stimulus.innerhtml=word
+stimulus.style.color=textColor
+buttons.addEventListener('click',answerSelected)
 addEventLisetener('mousemove',mousemove)
 // potentiellement attente maximum de 10s pour pas que le systeme enregistre eternellement en cas de bug/d'arret
 }

@@ -37,6 +37,10 @@ export const Trial = class{
      */
     latency;
 
+    /**
+     * @property { Number[][]}
+     */
+    mousePath;
 
     /**
      * @param {Boolean} isCongruent : pourcentage de mot congruents
