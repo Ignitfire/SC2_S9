@@ -1,5 +1,5 @@
 
-export {sequenceOrder, words, nbTrials, instructions, thanks}
+export {sequenceOrder, words, nbTrials, instructions, thanks, moveFasterinstructions}
 
 // bleu et jaune
 // rouge et vert
@@ -24,6 +24,13 @@ const thanks = "merci c'etait sympa, on refait ça à l'occas le boss";
  * message affiché dans la fenetre en debut de passation
  */
 const instructions = "bonjour, voici les instructions, commence l'expe avant jte gaine con de Ron";
+
+
+/**
+ * message affiché quand le participant attends de choisir avant de bouger
+ */
+const moveFasterinstructions = "eh bouge zebi";
+
 
 
 /**
