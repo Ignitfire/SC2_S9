@@ -1,4 +1,5 @@
-import { instructionWindow } from "./components.js";
+import { instructionWindow, popup } from "./components.js";
+import { instructions, moveFasterinstructions, thanks } from "../../constants.js";
 
 
 /**
@@ -7,7 +8,7 @@ import { instructionWindow } from "./components.js";
  */
 export const startingInstructions = function () {
   return new Promise((resolve) => {
-    let startingInstructionsWindow = instructionWindow(true);
+    let startingInstructionsWindow = instructionWindow(instructions, "j'ai compris, commencer l'experience", "begin");
 
     let body = document.querySelector('body')
     body.append(startingInstructionsWindow)
@@ -27,7 +28,7 @@ export const startingInstructions = function () {
  */
 export const endingInstructions = function () {
     return new Promise((resolve) => {
-      let startingInstructionsWindow = instructionWindow(false);
+      let startingInstructionsWindow = instructionWindow(thanks, "cimer a toi t'es un zinzin", "finish");
   
       let body = document.querySelector('body')
       body.append(startingInstructionsWindow)
@@ -39,3 +40,26 @@ export const endingInstructions = function () {
       })
     });
   };
+
+  export const wrongChoicePopup = function (){
+    return new Promise(resolve => {
+      let errorPopup = popup()
+      document.append(errorPopup)
+      setTimeout(() => {
+        document.removeChild(errorPopup)
+        resolve()
+      }, 2000);
+    })
+  }
+
+
+  export const moveFasterPopup = function (){
+    return new Promise(resolve => {
+      let fasterPopup = popup(moveFasterinstructions)
+      document.append(fasterPopup)
+      setTimeout(() => {
+        document.removeChild(fasterPopup)
+        resolve()
+      }, 2000);
+    })
+  }

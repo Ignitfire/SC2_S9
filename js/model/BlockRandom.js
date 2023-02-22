@@ -44,6 +44,7 @@ export const BlockRandom = class {
             /**
              * verification que le mot precedent n'est pas le meme
             */
+           //TODO : + verif qu'il n'y a pas deja $nbTrial/$words.length fois le meme trial dans $this.trial
            if (this.trials.length<2){
                this.trials.push(trial)
             }else if (trial.word !== this.trials[i - 1].word) {
