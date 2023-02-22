@@ -1,0 +1,28 @@
+.instructions {
+  position: absolute;
+  top: 20vh;
+  width: 50vw;
+  height: 50vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.instructions p {
+  background-color: rgb(204, 204, 204);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.instructions button {
+  margin: 5px;
+  padding: 5px;
+}
+
+.instructions button:hover {
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+}

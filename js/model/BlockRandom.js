@@ -1,4 +1,4 @@
-import { nbTrials } from "../constants.js";
+import { nbTrials } from "../../constants.js";
 import { Trial } from "./Trial.js";
 
 export const BlockRandom = class {
@@ -53,4 +53,15 @@ export const BlockRandom = class {
             }
         }
     }
+
+
+    /**
+   * parcours des essais du participants en appliquant la fonction
+   * @param {Function} callbackFunction
+   */
+async trialCourse(callbackFunction) {
+    for (let trial of this.trials) {
+      await callbackFunction(trial);
+    }
+  }
 }
