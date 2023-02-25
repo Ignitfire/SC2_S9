@@ -1,4 +1,3 @@
-
 /**
  * crée une fenetre d'instruction à partir des textes dans constants.js
  * @param {Boolean} beginOrEnd : true si on veut afficher les instructions du debut, false si c'est les remerciements
@@ -19,19 +18,17 @@ export const instructionWindow = function (message, buttonText, buttonId) {
   return div;
 };
 
-
 /**
  * si le paramettre message n'est pas renseigné, le popup affiche une grosse croix rouge
- * @param {String} message 
+ * @param {String} message
  */
-export const popup = function (message = null) {
-  let div = document.createElement("div")
+export const popup = function (message, id) {
+  let div = document.createElement("div");
   div.classList.add("popup");
 
-  if (message) {
-    let innerInstructions = document.createElement("p");
-    innerInstructions.innerText = message;
-  } else {
-    //TODO : mettre une grosse croix tah jesus le boss
-  }
-}
+  let innerInstructions = document.createElement("p");
+  innerInstructions.innerText = message;
+  innerInstructions.id = id;
+  div.append(innerInstructions);
+  return div;
+};

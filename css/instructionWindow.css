@@ -1,6 +1,7 @@
 .instructions {
   position: absolute;
   top: 20vh;
+  left: 25vw;
   width: 50vw;
   height: 50vh;
   background-color: rgba(255, 255, 255, 0.8);
@@ -25,4 +26,33 @@
 
 .instructions button:hover {
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+.popup{
+  position: absolute;
+  top: 30vh;
+  left: 35vw;
+  width: 30vw;
+  height: 30vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.popup p{
+  margin: 0;
+  padding: 0;
+}
+
+.popup #wrongChoice{
+  color: red;
+  font-size: 120px;
+  line-height: 1;
+}
+
+.popup #moveFaster{
+  color: black;
+  font-size: 20px;
 }

@@ -43,122 +43,42 @@ const moveFasterinstructions = "eh bouge zebi";
  */
 let words = [
     {
-        word: "bonjour",
+        word: "jaune",
         color: "blue",
         isCongruent: false
     },
     {
-        word: "blue",
+        word: "bleu",
         color: "blue",
         isCongruent: true
     },
     {
-        word: "salut",
+        word: "vert",
         color: "red",
         isCongruent: false
     },
     {
-        word: "red",
+        word: "rouge",
         color: "red",
         isCongruent: true
     },
     {
-        word: "ciao ciao",
+        word: "bleu",
         color: "yellow",
         isCongruent: false
     },
     {
-        word: "yellow",
+        word: "jaune",
         color: "yellow",
         isCongruent: true
     },
     {
-        word: "buongiorno la pizza",
+        word: "rouge",
         color: "green",
         isCongruent: false
     },
     {
-        word: "green",
-        color: "green",
-        isCongruent: true
-    },
-    {
-        word: "bonjourggggg2",
-        color: "blue",
-        isCongruent: false
-    },
-    {
-        word: "blue2",
-        color: "blue",
-        isCongruent: true
-    },
-    {
-        word: "salut2",
-        color: "red",
-        isCongruent: false
-    },
-    {
-        word: "red2",
-        color: "red",
-        isCongruent: true
-    },
-    {
-        word: "ciao ciao2",
-        color: "yellow",
-        isCongruent: false
-    },
-    {
-        word: "yellow2",
-        color: "yellow",
-        isCongruent: true
-    },
-    {
-        word: "buongiorno la pizza2",
-        color: "green",
-        isCongruent: false
-    },
-    {
-        word: "green2",
-        color: "green",
-        isCongruent: true
-    },
-    {
-        word: "bonjour3",
-        color: "blue",
-        isCongruent: false
-    },
-    {
-        word: "blue3",
-        color: "blue",
-        isCongruent: true
-    },
-    {
-        word: "salut3",
-        color: "red",
-        isCongruent: false
-    },
-    {
-        word: "red3",
-        color: "red",
-        isCongruent: true
-    },
-    {
-        word: "ciao ciao3",
-        color: "yellow",
-        isCongruent: false
-    },
-    {
-        word: "yellow3",
-        color: "yellow",
-        isCongruent: true
-    },
-    {
-        word: "buongiorno la pizza3",
-        color: "green",
-        isCongruent: false
-    },
-    {
-        word: "green3",
+        word: "vert",
         color: "green",
         isCongruent: true
     }

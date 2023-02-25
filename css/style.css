@@ -43,7 +43,7 @@ html{
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
-.start{
+#start{
     width: calc(var(--baseSize)*5);
     height:calc(var(--baseSize)*2);
 }
