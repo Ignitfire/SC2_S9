@@ -43,10 +43,11 @@ export const endingInstructions = function () {
 
   export const wrongChoicePopup = function (){
     return new Promise(resolve => {
-      let errorPopup = popup()
-      document.append(errorPopup)
+      let errorPopup = popup("X", "wrongChoice")
+      let body = document.querySelector('body')
+      body.append(errorPopup)
       setTimeout(() => {
-        document.removeChild(errorPopup)
+        body.removeChild(errorPopup)
         resolve()
       }, 2000);
     })
@@ -55,7 +56,7 @@ export const endingInstructions = function () {
 
   export const moveFasterPopup = function (){
     return new Promise(resolve => {
-      let fasterPopup = popup(moveFasterinstructions)
+      let fasterPopup = popup(moveFasterinstructions, 'moveFaster')
       document.append(fasterPopup)
       setTimeout(() => {
         document.removeChild(fasterPopup)
