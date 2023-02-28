@@ -19,7 +19,7 @@ html{
 #frame{
     width: 1100px;
     height: 550px;
-    background-color:black;
+    background-color:aqua;
     position: absolute;
 }
 .target{
@@ -55,5 +55,5 @@ html{
     justify-content: center ;
     align-items: center;
     position: absolute;
-    bottom: 10px;
+    top: 380px;
 }

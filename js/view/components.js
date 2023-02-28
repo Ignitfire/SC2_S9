@@ -7,6 +7,7 @@
 export const instructionWindow = function (message, buttonText, buttonId) {
   let div = document.createElement("div");
   div.classList.add("instructions");
+  
 
   let innerInstructions = document.createElement("p");
   innerInstructions.innerText = message;

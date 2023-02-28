@@ -47,8 +47,9 @@ export const trialExecution = async function (trial) {
         }
       );
     });
+    // hide button and message, wait 300ms, if button was left -> notify, reload visuals, break function ; else laucnh stimulus
+    
     //TODO bouton start disparait 300ms de pause affichage et libération souris
-
     /**
      * Affichage du stimulus
      */
@@ -61,8 +62,8 @@ export const trialExecution = async function (trial) {
      * Lancement des compteurs
      */
     trial.startTime = Date.now();
-    addEventLisetener('mousemove',(e) =>{ //TODO Rendre cette fonction synchrone avec elle-même seulement. (new Thread synchrone)
-      position=[e.pageX,e.pageY]
+    document.addEventListener('mousemove',(e) =>{ //TODO Rendre cette fonction synchrone avec elle-même seulement. (new Thread synchrone)
+      let position=[e.pageX,e.pageY]
       trial.mousePath.push(position)
     },{
       signal: mousemoveController.signal,

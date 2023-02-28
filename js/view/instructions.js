@@ -10,12 +10,12 @@ export const startingInstructions = function () {
   return new Promise((resolve) => {
     let startingInstructionsWindow = instructionWindow(instructions, "j'ai compris, commencer l'experience", "begin");
 
-    let body = document.querySelector('body')
-    body.append(startingInstructionsWindow)
+    let frame = document.querySelector('#frame')
+    frame.append(startingInstructionsWindow)
 
     let startButton = document.querySelector('button#begin')
     startButton.addEventListener('click', ()=>{
-        body.removeChild(startingInstructionsWindow)
+        frame.removeChild(startingInstructionsWindow)
         resolve()
     })
   });
@@ -30,12 +30,12 @@ export const endingInstructions = function () {
     return new Promise((resolve) => {
       let startingInstructionsWindow = instructionWindow(thanks, "cimer a toi t'es un zinzin", "finish");
   
-      let body = document.querySelector('body')
-      body.append(startingInstructionsWindow)
+      let frame = document.querySelector('#frame')
+      frame.append(startingInstructionsWindow)
   
       let startButton = document.querySelector('button#finish')
       startButton.addEventListener('click', ()=>{
-          body.removeChild(startingInstructionsWindow)
+          frame.removeChild(startingInstructionsWindow)
           resolve()
       })
     });

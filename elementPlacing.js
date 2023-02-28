@@ -3,9 +3,9 @@ function basePositionning(){
     let frame=document.querySelector("#frame")
     let frameX=(window.innerHeight-550)/2
     let frameY=(window.innerWidth-1100)/2
+    document.body.style.zoom="100%";
     frame.style.left=frameY+"px"
     frame.style.top=frameX+"px"
-
 
     // placer la zone d'action au centre
     let actionBox=document.querySelector("#ActionBox");
@@ -45,13 +45,15 @@ function basePositionning(){
     // placer les blocs 2 et 3 aux intersections gauche et droite de cette même distance
     let targetB_Y=(blockHeight/2)+8+frameX
 
-    let targetB_X=start_X-Math.sqrt(Math.pow(distance,2)-Math.pow(start_Y-targetB_Y,2))-frameY
+    let targetB_X=start_X-Math.sqrt(Math.pow(distance,2)-Math.pow(start_Y-targetB_Y,2))
+    console.log(distance)
+    console.log(Math.sqrt(Math.pow(Math.abs(start_Y-targetB_Y),2)+Math.pow(Math.abs(start_X-targetB_X),2)))
 
     targetB.style.position="absolute"
-    targetB.style.left=targetB_X+"px"
+    targetB.style.left=(targetB_X+blockWidth/2)+"px"
     targetB.style.top=8+frameX
     targetC.style.position="absolute"
-    targetC.style.right=targetB_X+"px"
+    targetC.style.right=(targetB_X+blockWidth/2)+"px"
     targetC.style.top=8+frameX
 
 }

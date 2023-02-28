@@ -38,7 +38,7 @@ export const Trial = class{
     latency;
 
     /**
-     * @property { Number[][]}
+     * @property { Number[][]}: coordonnées du chemin de la souris
      */
     mousePath;
 
@@ -62,6 +62,7 @@ export const Trial = class{
         this.word = matchingWords[randomChoice].word;
         this.isCongruent = isCongruent;
         this.textColor = textColor;
+        this.mousePath = [];
     }
 
     /**
