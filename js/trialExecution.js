@@ -9,6 +9,7 @@ import { moveFasterPopup, wrongChoicePopup } from "./view/instructions.js";
 export const trialExecution = async function (trial) {
   return new Promise((resolve, reject) => {
     //TODO: on laisse le reject??
+    //* Oui je pense, en cas de sortie de souris, ou en cas de temps trop long on refait juste l'essais tel quel */
     //TODO: rajouter les mouseTracker + du coup les attributs d'instances associés dans Trial.js
     let colorButtons = [
       document.querySelector("#red"),
@@ -26,6 +27,9 @@ export const trialExecution = async function (trial) {
      */
     let startButton = document.querySelector('#start')
     startButton.style.visibility = 'visible'
+
+    let stimulus = document.querySelector("#stimulus");
+    stimulus.style.visibility = 'hidden'
     /**
      * création de l'event sur le bouton start:
      * lance les event des boutons de choix de couleurs
@@ -34,10 +38,14 @@ export const trialExecution = async function (trial) {
      * rend invisible le bouton start
      */
     startButton.addEventListener("click", (e) => {
+      //* En fait faudrait que la préparation des boutons et tout se fasse en même temps que les
+      //* 300ms d'attente, genre 2 threads qui s'attendent.
       /**
        * suppression du bouton start (invisible)
        */
       startButton.style.visibility = 'hidden'
+      //TODO wait 300ms, if mouseout => reset
+      stimulus.style.visibility = 'visible'
       /**
        * ajout des event listener sur les boutons de choix de couleur qui cloture l'essai
        */
@@ -67,7 +75,6 @@ export const trialExecution = async function (trial) {
       /**
        * Affichage du stimulus
        */
-      let stimulus = document.querySelector("#stimulus");
       stimulus.innerHTML = trial.word;
       stimulus.style.color = trial.textColor;
 

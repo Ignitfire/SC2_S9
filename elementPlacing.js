@@ -1,4 +1,4 @@
-function basePositionning(){
+export const basePositionning = function(){
     // placer la frame au centre de l'écran
     let frame=document.querySelector("#frame")
     let frameX=(window.innerHeight-550)/2
@@ -36,7 +36,6 @@ function basePositionning(){
     let start_Y = positionStart.left-frameY+startWidth/2;
     let start_X = positionStart.top-frameX+startHeight/2;
 
-
     let positionTargetA = targetA.getBoundingClientRect();
     let targetA_Y = positionTargetA.left-frameY+blockWidth/2;
     let targetA_X = positionTargetA.top-frameX+blockHeight/2;
@@ -50,11 +49,9 @@ function basePositionning(){
     console.log(Math.sqrt(Math.pow(Math.abs(start_Y-targetB_Y),2)+Math.pow(Math.abs(start_X-targetB_X),2)))
 
     targetB.style.position="absolute"
-    targetB.style.left=(targetB_X+blockWidth/2)+"px"
+    targetB.style.left=targetB_X+"px"
     targetB.style.top=8+frameX
     targetC.style.position="absolute"
-    targetC.style.right=(targetB_X+blockWidth/2)+"px"
+    targetC.style.right=targetB_X+"px"
     targetC.style.top=8+frameX
-
 }
-basePositionning()

@@ -45,6 +45,7 @@ export const endingInstructions = function () {
     return new Promise(resolve => {
       let errorPopup = popup("X", "wrongChoice")
       let body = document.querySelector('body')
+      errorPopup.style.backgroundColor="transparent"
       body.append(errorPopup)
       setTimeout(() => {
         body.removeChild(errorPopup)
