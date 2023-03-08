@@ -67,7 +67,7 @@ export const Trial = class{
 
     /**
      * le setter se charge d'instancier this.endTime et this.latency en fonction du parametre
-     * @param { Integer } endTime: le temps au moment du clic sur le bouton choisi 
+     * @param { Integer } value: le temps au moment du clic sur le bouton choisi 
      */
     set endTime(value) {
         if(!this.startTime){

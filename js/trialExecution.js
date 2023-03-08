@@ -19,12 +19,16 @@ export const trialExecution = async function (trial) {
     ];
     let colorButtonsController = new AbortController();
     let mousemoveController = new AbortController();
+    let mouseOutController = new AbortController();
+
 
     let performanceProblem = "";
     /**
      * recuperation et affichage du bouton start
      //TODO potentiellement attente maximum de 10s pour pas que le systeme enregistre eternellement en cas de bug/d'arret
      */
+    let startArea = document.querySelector('#startArea')
+    
     let startButton = document.querySelector('#start')
     startButton.style.visibility = 'visible'
 
@@ -37,7 +41,8 @@ export const trialExecution = async function (trial) {
      * affiche le stimulus
      * rend invisible le bouton start
      */
-    startButton.addEventListener("click", (e) => {
+    let movedOut=false;
+    startButton.addEventListener("click", async (e) => {
       //* En fait faudrait que la préparation des boutons et tout se fasse en même temps que les
       //* 300ms d'attente, genre 2 threads qui s'attendent.
       /**
@@ -45,6 +50,15 @@ export const trialExecution = async function (trial) {
        */
       startButton.style.visibility = 'hidden'
       //TODO wait 300ms, if mouseout => reset
+      startArea.addEventListener("mouseout", (e) =>{
+        reject();
+      },{
+        signal: mouseOutController.signal,
+      })
+
+      setTimeout(() => {
+        mouseOutController.abort();
+      },300)
       stimulus.style.visibility = 'visible'
       /**
        * ajout des event listener sur les boutons de choix de couleur qui cloture l'essai
@@ -113,5 +127,5 @@ export const trialExecution = async function (trial) {
     }
     //rend le fil d'execution
     return
-  });
+  }).catch(trialExecution(trial));
 };

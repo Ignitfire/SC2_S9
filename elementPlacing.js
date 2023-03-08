@@ -45,8 +45,7 @@ export const basePositionning = function(){
     let targetB_Y=(blockHeight/2)+8+frameX
 
     let targetB_X=start_X-Math.sqrt(Math.pow(distance,2)-Math.pow(start_Y-targetB_Y,2))
-    console.log(distance)
-    console.log(Math.sqrt(Math.pow(Math.abs(start_Y-targetB_Y),2)+Math.pow(Math.abs(start_X-targetB_X),2)))
+
 
     targetB.style.position="absolute"
     targetB.style.left=targetB_X+"px"
