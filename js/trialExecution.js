@@ -7,29 +7,27 @@ import { moveFasterPopup, wrongChoicePopup, waitStimuliPopup } from "./view/inst
  * @returns { Promise }
  */
 export const trialExecution = async function (trial) {
-  return new Promise((resolve, reject) => {
-    //TODO: on laisse le reject??
-    //* Oui je pense, en cas de sortie de souris, ou en cas de temps trop long on refait juste l'essais tel quel */
-    //TODO: rajouter les mouseTracker + du coup les attributs d'instances associés dans Trial.js
+  return new Promise((resolve, reject) => {    
     let colorButtons = [
       document.querySelector("#red"),
       document.querySelector("#blue"),
       document.querySelector("#yellow"),
       document.querySelector("#green"),
     ];
+    let startArea = document.querySelector('#startArea')
+    let startButton = document.querySelector('#start')
+
+
     let colorButtonsController = new AbortController();
     let mousemoveController = new AbortController();
     let mouseOutController = new AbortController();
-
 
     let performanceProblem = "";
     /**
      * recuperation et affichage du bouton start
      //TODO potentiellement attente maximum de 10s pour pas que le systeme enregistre eternellement en cas de bug/d'arret
      */
-    let startArea = document.querySelector('#startArea')
-    
-    let startButton = document.querySelector('#start')
+   
     startButton.style.visibility = 'visible'
 
     let stimulus = document.querySelector("#stimulus");
