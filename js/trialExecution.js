@@ -16,6 +16,7 @@ export const trialExecution = async function (trial) {
     ];
     let startArea = document.querySelector('#startArea')
     let startButton = document.querySelector('#start')
+    let stimulus = document.querySelector("#stimulus");
 
 
     let colorButtonsController = new AbortController();
@@ -29,8 +30,6 @@ export const trialExecution = async function (trial) {
      */
    
     startButton.style.visibility = 'visible'
-
-    let stimulus = document.querySelector("#stimulus");
     stimulus.style.visibility = 'hidden'
     /**
      * création de l'event sur le bouton start:
@@ -40,13 +39,10 @@ export const trialExecution = async function (trial) {
      * rend invisible le bouton start
      */
     startButton.addEventListener("click", async (e) => {
-      //* En fait faudrait que la préparation des boutons et tout se fasse en même temps que les
-      //* 300ms d'attente, genre 2 threads qui s'attendent.
       /**
        * suppression du bouton start (invisible)
        */
       startButton.style.visibility = 'hidden'
-      //TODO wait 300ms, if mouseout => reset
       startArea.addEventListener("mouseleave", (e) =>{
         console.log("throw out")
         reject("outedEarly");
