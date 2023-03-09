@@ -51,7 +51,7 @@ export const trialExecution = async function (trial) {
       //TODO wait 300ms, if mouseout => reset
       startArea.addEventListener("mouseleave", (e) =>{
         console.log("throw out")
-        reject("outedEarly",trial);
+        reject("outedEarly");
       },{
         signal: mouseOutController.signal,
       })
@@ -107,7 +107,7 @@ export const trialExecution = async function (trial) {
 
       setTimeout(() => {
         mouseOutController.abort();
-        if(moved) reject("outedLate",trial);
+        if(moved) reject("outedLate");
       },500)
 
       /**
