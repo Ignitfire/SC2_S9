@@ -41,7 +41,6 @@ export const trialExecution = async function (trial) {
      * affiche le stimulus
      * rend invisible le bouton start
      */
-    let movedOut=false;
     startButton.addEventListener("click", async (e) => {
       //* En fait faudrait que la préparation des boutons et tout se fasse en même temps que les
       //* 300ms d'attente, genre 2 threads qui s'attendent.
@@ -121,7 +120,6 @@ export const trialExecution = async function (trial) {
           //TODO : si la souris reste a la meme position plus de 500ms -> mettre la valeur "tooSlow" à $performanceProblem
           let position = [e.pageX, e.pageY];
           trial.mousePath.push(position);
-          console.log(position)
         },
         {
           signal: mousemoveController.signal,
