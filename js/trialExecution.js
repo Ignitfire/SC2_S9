@@ -1,5 +1,5 @@
 import { Trial } from "./model/Trial.js";
-import { moveFasterPopup, wrongChoicePopup } from "./view/instructions.js";
+import { moveFasterPopup, wrongChoicePopup, waitStimuliPopup } from "./view/instructions.js";
 /**
  * en fonction du $trial, donne le mot et la couleur au texte du stimulus
  * crée les event listener sur les boutons de choix de couleur et resolve lorsqu'un clic est effectué
@@ -50,8 +50,9 @@ export const trialExecution = async function (trial) {
        */
       startButton.style.visibility = 'hidden'
       //TODO wait 300ms, if mouseout => reset
-      startArea.addEventListener("mouseout", (e) =>{
-        reject("out");
+      startArea.addEventListener("mouseleave", (e) =>{
+        console.log("throw out")
+        reject("outedEarly",trial);
       },{
         signal: mouseOutController.signal,
       })
@@ -96,21 +97,36 @@ export const trialExecution = async function (trial) {
        * initialisation du temps de debut
        */
       trial.startTime = Date.now();
+
+      //TODO what you want me to do
+      let moved=false;
+      startArea.addEventListener("mouseleave", (e) =>{
+        moved=true
+      },{
+        signal: mouseOutController.signal,
+      })
+
+      setTimeout(() => {
+        mouseOutController.abort();
+        if(moved) reject("outedLate",trial);
+      },500)
+
       /**
        * initialisation du mouse tracking
        */
-      /* addEventLisetener(
+      document.addEventListener(
         "mousemove",
         (e) => {
           //TODO Rendre cette fonction synchrone avec elle-même seulement. (new Thread synchrone) -> ya pas de thread en js c'est des promise
           //TODO : si la souris reste a la meme position plus de 500ms -> mettre la valeur "tooSlow" à $performanceProblem
-          position = [e.pageX, e.pageY];
+          let position = [e.pageX, e.pageY];
           trial.mousePath.push(position);
+          console.log(position)
         },
         {
           signal: mousemoveController.signal,
         }
-      ); */
+      );
     });
   }).then(async (performanceProblem) => {
     /**
@@ -128,7 +144,14 @@ export const trialExecution = async function (trial) {
     //rend le fil d'execution
     return
   }).catch(async(e) =>{
-    if(e==="out") trialExecution(trial)
+    if(e==="outedEarly"){
+      await waitStimuliPopup();
+      await trialExecution(trial)
+    }
+    else if(e==="outedLate"){
+      await moveFasterPopup();
+      await trialExecution(trial)
+    }
     else console.error(e)
   });
 };
