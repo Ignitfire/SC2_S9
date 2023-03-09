@@ -51,7 +51,7 @@ export const trialExecution = async function (trial) {
       startButton.style.visibility = 'hidden'
       //TODO wait 300ms, if mouseout => reset
       startArea.addEventListener("mouseout", (e) =>{
-        reject();
+        reject("out");
       },{
         signal: mouseOutController.signal,
       })
@@ -127,5 +127,8 @@ export const trialExecution = async function (trial) {
     }
     //rend le fil d'execution
     return
-  }).catch(trialExecution(trial));
+  }).catch(async(e) =>{
+    if(e==="out") trialExecution(trial)
+    else console.error(e)
+  });
 };
