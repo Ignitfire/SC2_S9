@@ -58,7 +58,8 @@ export const endingInstructions = function () {
   export const moveFasterPopup = function (){
     return new Promise(resolve => {
       let fasterPopup = popup(moveFasterinstructions, 'moveFaster')
-      document.append(fasterPopup)
+      let body = document.querySelector('body')
+      body.append(fasterPopup)
       setTimeout(() => {
         document.removeChild(fasterPopup)
         resolve()
@@ -70,7 +71,8 @@ export const endingInstructions = function () {
   export const waitStimuliPopup = function (){
     return new Promise(resolve => {
       let waitPopup = popup(waitStimuliInstruction, 'waitStimuli')
-      document.append(waitPopup)
+      let body = document.querySelector('body')
+      body.append(waitPopup)
       setTimeout(() => {
         document.removeChild(waitPopup)
         resolve()
