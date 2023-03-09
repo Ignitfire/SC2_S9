@@ -70,6 +70,7 @@ export const endingInstructions = function () {
 
   export const waitStimuliPopup = function (){
     return new Promise(resolve => {
+      console.log('hello')
       let waitPopup = popup(waitStimuliInstruction, 'waitStimuli')
       let body = document.querySelector('body')
       body.append(waitPopup)

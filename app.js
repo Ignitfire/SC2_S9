@@ -3,6 +3,9 @@ import { Participant } from "./js/model/Participant.js";
 import { trialExecution } from "./js/trialExecution.js";
 import {basePositionning} from "./elementPlacing.js"
 basePositionning();
+
+
+
 /**
  * creation du participant
  */

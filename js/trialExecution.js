@@ -56,8 +56,17 @@ export const trialExecution = async function (trial) {
 
       setTimeout(() => {
         mouseOutController.abort();
-      },300)
-      stimulus.style.visibility = 'visible'
+        stimulus.style.visibility = 'visible'
+        /**
+       * Affichage du stimulus
+       */
+      stimulus.innerHTML = trial.word;
+      stimulus.style.color = trial.textColor;
+
+      /**
+       * initialisation du temps de debut
+       */
+      trial.startTime = Date.now();
       /**
        * ajout des event listener sur les boutons de choix de couleur qui cloture l'essai
        */
@@ -84,16 +93,7 @@ export const trialExecution = async function (trial) {
       });
       //TODO bouton start disparait 300ms de pause affichage et libération souris
 
-      /**
-       * Affichage du stimulus
-       */
-      stimulus.innerHTML = trial.word;
-      stimulus.style.color = trial.textColor;
-
-      /**
-       * initialisation du temps de debut
-       */
-      trial.startTime = Date.now();
+      
 
       //TODO what you want me to do
       let moved=false;
@@ -124,6 +124,8 @@ export const trialExecution = async function (trial) {
           signal: mousemoveController.signal,
         }
       );
+    },300)
+
     });
   }).then(async (performanceProblem) => {
     /**
