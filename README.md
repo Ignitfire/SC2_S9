@@ -36,6 +36,7 @@ function answerSelected(e){
 They then completed a short questionnaire regarding
 their demographic details and filled out Annett’s [28] Handedness Inventory
 # ->> voir si il faut faire le meme questionnaire
+droitier gaucher sexe age
 
 
 g. A trial ended once they clicked one of the response boxes.

@@ -1,5 +1,5 @@
 
-export {sequenceOrder, words, nbTrials, instructions, thanks, moveFasterinstructions}
+export {sequenceOrder, words, nbTrials, instructions, thanks, moveFasterinstructions, waitStimuliInstruction}
 
 // bleu et jaune
 // rouge et vert
@@ -18,20 +18,20 @@ const sequenceOrder = [ 'red', 'yellow', 'blue', 'green', 'yellow', 'red', 'gree
 /**
  * message affiché dans la fenetre en fin de passation
  */
-const thanks = "merci c'etait sympa, on refait ça à l'occas le boss";
+const thanks = "merci d'avoir participé, vos résultats sont anonymisés et utilisés pour un traitement statistique. Veuilez ne pas recommencer l'experience pour ne pas fausser les données";
 
 /**
  * message affiché dans la fenetre en debut de passation
  */
-const instructions = "bonjour, voici les instructions, commence l'expe avant jte gaine con de Ron";
+const instructions = "bonjour, L'experience suivante...";
 
 
 /**
  * message affiché quand le participant attends de choisir avant de bouger
  */
-const moveFasterinstructions = "eh bouge zebi";
+const moveFasterinstructions = "une fois que le stimuli est présenté, commencez à vous diriger vers la case le plus rapidement possible";
 
-
+const waitStimuliInstruction = "attendez que le stimuli apparraisse pour sortir de la case"
 
 /**
  * mots utilisés comme stimuli dans l'experience avec leur couleur et leur caracteristique congruente ou non (boolean)

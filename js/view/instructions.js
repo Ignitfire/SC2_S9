@@ -1,5 +1,5 @@
 import { instructionWindow, popup } from "./components.js";
-import { instructions, moveFasterinstructions, thanks } from "../../constants.js";
+import { instructions, moveFasterinstructions, thanks, waitStimuliInstruction } from "../../constants.js";
 
 
 /**
@@ -61,6 +61,18 @@ export const endingInstructions = function () {
       document.append(fasterPopup)
       setTimeout(() => {
         document.removeChild(fasterPopup)
+        resolve()
+      }, 2000);
+    })
+  }
+
+
+  export const waitStimuliPopup = function (){
+    return new Promise(resolve => {
+      let waitPopup = popup(waitStimuliInstruction, 'waitStimuli')
+      document.append(waitPopup)
+      setTimeout(() => {
+        document.removeChild(waitPopup)
         resolve()
       }, 2000);
     })
