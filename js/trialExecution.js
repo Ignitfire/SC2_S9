@@ -101,13 +101,14 @@ export const trialExecution = async function (trial) {
       let moved=false;
       startArea.addEventListener("mouseleave", (e) =>{
         moved=true
+        console.log("moved")
       },{
         signal: mouseOutController.signal,
       })
 
       setTimeout(() => {
         mouseOutController.abort();
-        if(moved) reject("outedLate");
+        if(!moved) reject("outedLate");
       },500)
 
       /**
