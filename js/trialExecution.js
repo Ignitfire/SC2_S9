@@ -21,7 +21,9 @@ export const trialExecution = async function (trial) {
 
     let colorButtonsController = new AbortController();
     let mousemoveController = new AbortController();
-    let mouseOutController = new AbortController();
+    let mouseOutEarlyController = new AbortController();
+    let mouseOutLateController = new AbortController();
+     
 
     let performanceProblem = "";
     /**
@@ -47,18 +49,17 @@ export const trialExecution = async function (trial) {
         console.log("throw out")
         reject("outedEarly");
       },{
-        signal: mouseOutController.signal,
+        signal: mouseOutEarlyController.signal,
       })
 
       setTimeout(() => {
-        mouseOutController.abort();
-        stimulus.style.visibility = 'visible'
+        mouseOutEarlyController.abort();
         /**
        * Affichage du stimulus
        */
       stimulus.innerHTML = trial.word;
       stimulus.style.color = trial.textColor;
-
+      stimulus.style.visibility = 'visible'
       /**
        * initialisation du temps de debut
        */
@@ -97,15 +98,14 @@ export const trialExecution = async function (trial) {
         moved=true
         console.log("moved")
       },{
-        signal: mouseOutController.signal,
+        signal: mouseOutLateController.signal,
       })
 
       setTimeout(() => {
-        mouseOutController.abort();
+        mouseOutLateController.abort();
         if(!moved) reject("outedLate");
-      },500)
-
-      /**
+        else{
+           /**
        * initialisation du mouse tracking
        */
       document.addEventListener(
@@ -120,6 +120,8 @@ export const trialExecution = async function (trial) {
           signal: mousemoveController.signal,
         }
       );
+        }
+      },500)
     },300)
 
     });
