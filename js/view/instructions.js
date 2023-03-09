@@ -61,7 +61,7 @@ export const endingInstructions = function () {
       let body = document.querySelector('body')
       body.append(fasterPopup)
       setTimeout(() => {
-        document.removeChild(fasterPopup)
+        body.removeChild(fasterPopup)
         resolve()
       }, 2000);
     })
@@ -74,7 +74,7 @@ export const endingInstructions = function () {
       let body = document.querySelector('body')
       body.append(waitPopup)
       setTimeout(() => {
-        document.removeChild(waitPopup)
+        body.removeChild(waitPopup)
         resolve()
       }, 2000);
     })
